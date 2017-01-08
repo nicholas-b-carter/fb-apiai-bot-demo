@@ -1,7 +1,5 @@
 'use strict';
-const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 const APIAI_TOKEN = process.env.APIAI_TOKEN;
-const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -17,15 +15,6 @@ const server = app.listen(process.env.PORT || 5000, () => {
 });
 
 const apiaiApp = apiai(APIAI_TOKEN);
-
-/* For Facebook Validation */
-app.get('/webhook', (req, res) => {
-  if (req.query['hub.mode'] && req.query['hub.verify_token'] === 'tuxedo_cat') {
-    res.status(200).send(req.query['hub.challenge']);
-  } else {
-    res.status(403).end();
-  }
-});
 
 /* Handling all messenges */
 app.post('/webhook', (req, res) => {
