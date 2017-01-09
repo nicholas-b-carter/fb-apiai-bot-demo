@@ -47,10 +47,6 @@ app.post('/webhook', (req, res) => {
     }
   }
 
-  let apiai = apiaiApp.textRequest(text, {
-    sessionId: 'sysco_ordering'
-  });
-
   apiai.on('response', (response) => {
     let aiText = response.result.fulfillment.speech;
   });
