@@ -11,19 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/nicholas-b-carter/fb-apiai-bot-demo"
   },
-  "keywords": [
-    "bot",
-    "ai",
-    "chat",
-    "facebook",
-    "messenger"
-  ],
   "author": "Nick Carter",
   "license": "MIT",
   "dependencies": {
-    "apiai": "^3.0.3",
-    "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "request": "^2.79.0"
+    "api-ai-botkit": "^1.0.3",
+    "botkit": "^0.4.9"
   }
 }
