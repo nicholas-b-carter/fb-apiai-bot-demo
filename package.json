@@ -5,7 +5,8 @@
   "main": "webhook.js",
   "scripts": {
     "start": "nf start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy" : "git add . && git commit -m 'deploying' && git push && git push heroku master"
   },
   "repository": {
     "type": "git",
