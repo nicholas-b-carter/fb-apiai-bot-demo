@@ -3,7 +3,7 @@
 const Botkit = require('botkit');
 const apiaibotkit = require('api-ai-botkit');
 
-const slackToken = 'xoxb-125848828695-a3hHvH8xo2iQIplVEvePoIu8';
+const slackToken = 'CVTSgVQcRIrehAJ5DNZUKB3K';
 const apiaiToken = 'b20f48f876104dcfa1c542b4a5bcd2a3';
 
 const apiai = apiaibotkit(apiaiToken);
