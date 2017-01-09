@@ -1,7 +1,7 @@
 {
-  "name": "fb-weather-bot",
+  "name": "sysco-ordering-bot",
   "version": "0.1.0",
-  "description": "Facebook bot using api.ai",
+  "description": "sysco ordering using api.ai",
   "main": "webhook.js",
   "scripts": {
     "start": "nf start",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/girliemac/fb-apiai-bot-simple"
+    "url": "git+https://github.com/nicholas-b-carter/fb-apiai-bot-demo"
   },
   "keywords": [
     "bot",
@@ -18,7 +18,7 @@
     "facebook",
     "messenger"
   ],
-  "author": "Tomomi ❤️ Imura",
+  "author": "Nick Carter",
   "license": "MIT",
   "dependencies": {
     "apiai": "^3.0.3",

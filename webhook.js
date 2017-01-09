@@ -1,5 +1,5 @@
 'use strict';
-const APIAI_TOKEN = process.env.APIAI_TOKEN;
+const APIAI_TOKEN = 'b20f48f876104dcfa1c542b4a5bcd2a3';
 
 const express = require('express');
 const bodyParser = require('body-parser');
