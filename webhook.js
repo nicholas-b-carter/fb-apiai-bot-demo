@@ -18,12 +18,15 @@ const apiaiHook = apiai(APIAI_TOKEN);
 
 const createOrder = ({ params, res }) => {
   console.log(params);
-
-  request.post('http://hamilton-api.herokuapp.com/orders', params, (err, response, body) => {
+const orderRequest = request({
+    url: 'http://hamilton-api.herokuapp.com/orders',
+    method: 'POST',
+    json: params
+  }, (err, response, body) => {
     if (!err && response.statusCode == 200) {
       let json = JSON.parse(body);
       console.log(json);
-      return res.status(200).json(body);
+      return res.json(body);
     } else {
       return res.status(400).json({
         status: {
@@ -33,11 +36,14 @@ const createOrder = ({ params, res }) => {
       });
     }
   });
+
+  console.log(orderRequest);
 };
 
 /* Handling all messenges */
 app.post('/webhook', (req, res) => {
   const { body: { result: { action, parameters } } } = req;
+  console.log(action);
   switch (action) {
     case 'create.order': {
       createOrder({parameters, res});

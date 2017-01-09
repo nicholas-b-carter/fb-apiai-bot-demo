@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nf start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy" : "git add . && git commit -m 'deploying' && git push && git push heroku master"
+    "deploy": "git add . && git commit -m 'deploying' && git push && git push heroku master",
+    "local": "./ngrok http 5000 && nodemon ./webhook.js"
   },
   "repository": {
     "type": "git",
