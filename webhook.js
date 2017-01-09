@@ -4,7 +4,7 @@ const APIAI_TOKEN = 'b20f48f876104dcfa1c542b4a5bcd2a3';
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-const api = require('apiai');
+const apiai = require('apiai');
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,16 +14,16 @@ const server = app.listen(process.env.PORT || 5000, () => {
   console.log('Express server listening on port %d in %s mode', server.address().port, app.settings.env);
 });
 
-const apiai = api(APIAI_TOKEN);
+const apiaiHook = apiai(APIAI_TOKEN);
 
 const createOrder = ({ params, res }) => {
   console.log(params);
 
-  request.post({url:'http://hamilton-api.herokuapp.com/orders', params}, (err, response, body) => {
+  request.post('http://hamilton-api.herokuapp.com/orders', params, (err, response, body) => {
     if (!err && response.statusCode == 200) {
       let json = JSON.parse(body);
       console.log(json);
-      return res.json(json);
+      return res.status(200).json(body);
     } else {
       return res.status(400).json({
         status: {
@@ -33,7 +33,7 @@ const createOrder = ({ params, res }) => {
       });
     }
   });
-}
+};
 
 /* Handling all messenges */
 app.post('/webhook', (req, res) => {
@@ -47,13 +47,13 @@ app.post('/webhook', (req, res) => {
     }
   }
 
-  apiai.on('response', (response) => {
-    let aiText = response.result.fulfillment.speech;
-  });
-
-  apiai.on('error', (error) => {
-    console.log(error);
-  });
-
-  apiai.end();
+  // apiai.on('response', (response) => {
+  //   let aiText = response.result.fulfillment.speech;
+  // });
+  //
+  // apiai.on('error', (error) => {
+  //   console.log(error);
+  // });
+  //
+  // apiai.end();
 });
