@@ -19,7 +19,7 @@ const apiaiApp = apiai(APIAI_TOKEN);
 const createOrder = ({ params, res }) => {
   console.log(params);
 
-  request.post({url:'http://hamilton-api.herokuapp.com/orders', {...params}}, (err, response, body) => {
+  request.post({url:'http://hamilton-api.herokuapp.com/orders', params}, (err, response, body) => {
     if (!err && response.statusCode == 200) {
       let json = JSON.parse(body);
       console.log(json);
@@ -32,7 +32,7 @@ const createOrder = ({ params, res }) => {
         }
       });
     }
-  })
+  });
 }
 
 /* Handling all messenges */
