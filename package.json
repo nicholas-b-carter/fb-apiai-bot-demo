@@ -17,6 +17,6 @@
   "license": "MIT",
   "dependencies": {
     "api-ai-botkit": "^1.0.3",
-    "botkit": "^0.4.9"
+    "botkit": "^0.6.11"
   }
 }
